@@ -1,0 +1,39 @@
+{
+  "name": "webpack-b2b",
+  "version": "1.0.0",
+  "description": "This is a webpack demo for B2B at Readify",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YAdelMehraban/webpack-b2b.git"
+  },
+  "keywords": [
+    "webpack",
+    "frontend",
+    "bundling",
+    "minification"
+  ],
+  "author": "Yaser Mehraban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YAdelMehraban/webpack-b2b/issues"
+  },
+  "homepage": "https://github.com/YAdelMehraban/webpack-b2b#readme",
+  "devDependencies": {
+    "postcss-loader": "^0.13.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "node-sass": "^3.9.3",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2"
+  }
+}
