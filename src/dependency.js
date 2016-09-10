@@ -10,6 +10,9 @@ const MyClass = class Me {
         <label>Name:</label>
         <input class="form-control" type="text" />
       </div>
+      <div class="col-xs-12 link">
+        <a href="#"><h2>Me</h2></a>
+      <div>
     </div>`;
   }
 };

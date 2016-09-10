@@ -1,6 +1,7 @@
 var path = require('path');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   context: path.resolve('src'),
@@ -19,7 +20,7 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    loaders: [    
+    loaders: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -30,30 +31,33 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style-loader','css-loader!sass-loader'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader'),
         exclude: /node_modules/
-      },  
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader','css-loader')        
       },
       {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, 
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=application/font-woff'
       },
       {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, 
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=application/octet-stream'
       },
       {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, 
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file'
       },
       {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, 
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url?limit=10000&mimetype=image/svg+xml'
       }
     ]
+  },
+  postcss: function () {
+    return [autoprefixer];
   },
   plugins: [
     new ExtractTextPlugin('style.css')
