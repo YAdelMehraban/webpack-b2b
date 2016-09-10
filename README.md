@@ -53,6 +53,17 @@ Following loaders are all used to deal with static resources like css, fonts, im
 
 I think you can easily find the use of other loaders on the [webpack](https://webpack.github.io/docs/) documentation repository.
 
+### add script to `package.json` to run `webpack-dev-server` with node
+
+Add this to scripts section of your `package.json`:
+
+```javascript
+"start": "webpack-dev-server --hot --inline"
+```
+I am using `--inline` and `--hot` flags to tell `webpack-dev-server` to use hot-reloading for dev purposes.
+
+## Step 3: create the project files
+
 Cool, I think we are now ready to jump to creating necessary files for our project.
 
 We will start by creating a couple of empty folders as the structure of the project.
@@ -219,9 +230,26 @@ module.exports = {
 
 I'll explain the configuration file section by section.
 1- The most important parts are entry points and output of webpack.
-* context: this flag defines the root of the source files (for us js files). This is used to prevent repeating the full path while referring to source files.
-* entry: this can be one or multiple files, depending on which one you use you should alter your output respectively.
-* output: this is an object containing a couple of key/values. The first one is path which indicates which directory should be used for output.
+* `context`: this flag defines the root of the source files (for us js files). This is used to prevent repeating the full path while referring to source files.
+* `entry`: this can be one or multiple files, depending on which one you use you should alter your output respectively.
+* `output`: this is an object containing a couple of key/values. The first one is path which indicates which directory should be used for output.
 Second is the `publicPath` which specifies the public URL address of the output files when referenced in a browser. For loaders that embed `<script>` or `<link>` tags or reference assets like images, `publicPath` is used as the `href` or `url()` to the file when it’s different then their location on disk (as specified by path).
-* resolve: Options affecting the resolving of modules, extensions is an array of file extensions that should be parsed by webpack.
-* devServer: these are the configuration of `devServer` used for customising how devServer should work. I am using `contentBase` for pointing the root of public as entry point.
+* `resolve`: options affecting the resolving of modules, extensions is an array of file extensions that should be parsed by webpack.
+* `devServer`: these are the configuration of `devServer` used for customising how devServer should work. I am using `contentBase` for pointing the root of public as entry point.
+* `devtool`: this one is used to tell webpack it should create `source-map` files for debugging purposes.
+* `module`: the main configuration flag is module.
+..* `preloaders`: this section can be used for anything that needs to be done before loading. `Linting` is a good example which I've setup to use `ESList`. This way it webpack gives you error on linting errors.
+..* `loaders`: I've explained this before, generally this is list of loaders used to create the bundle.
+* `postcss`: this one is used to tell webpack what should it do after loading css files. `Autoprefixer` is used to prefix any css attribute which has browser specific equivalent.
+* `plugins`: this is the list of `plugins` you might use with webpack. I am using `extract-text-webpack-plugin` to force webpack to generate css output outside of js bundle.
+
+Long setup nah?
+
+Beleive me this is the last one. You can now type `npm start` to run the project and see the result.
+```bash
+npm start
+```
+
+You can now open your browser and type `http://localhost:8080` and it will open up the `index.html` for you.
+
+Hope you've enjoyed the guide.
