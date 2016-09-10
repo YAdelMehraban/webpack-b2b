@@ -1,7 +1,8 @@
 document.write(`
   <div class="row">
     <div class="col-xs-6">
-      <input type="text" />
+      <label>Name:</label>
+      <input class="form-control" type="text" />
     </div>
   </div>
 `);

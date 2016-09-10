@@ -1,4 +1,6 @@
+require('bootstrap/dist/css/bootstrap.css');
 require('../css/styles.css');
+
 
 document.write('<h2> This is a demo..! </h2>');
 require('./dependency');

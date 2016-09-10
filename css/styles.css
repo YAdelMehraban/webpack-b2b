@@ -1,7 +1,12 @@
 body {
-  background-color: cadetblue; 
+  background-color: steelblue; 
 }
 
 h2 {
   font-size: 2em;
+  color: white;
+}
+
+label {
+  color: white;
 }
