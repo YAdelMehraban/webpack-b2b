@@ -1,9 +1,9 @@
 const MyClass = class Me {
-  getClassName() {
+  static getClassName() {
     return Me.name;
   }
 
-  getTemplate() {
+  static getTemplate() {
     return `
     <div class="row">
       <div class="col-xs-6">
