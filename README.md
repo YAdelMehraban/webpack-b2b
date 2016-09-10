@@ -34,7 +34,7 @@ npm i bootstrap --save
 
 Don't worry, I will go through these one by one:
 
-[babel-loader](https://www.npmjs.com/package/babel-loader) This package allows transpiling JavaScript files using Babel and webpack.
+* *[babel-loader](https://www.npmjs.com/package/babel-loader) This package allows transpiling JavaScript files using Babel and webpack.
 
 Here i am assuming, you will be using ES6 and have some idea on [babel](https://babeljs.io/) which is a compiler for writing next generation JavaScript. We will be doing our setup using babel6, which is its latest version and differs a lot from its older versions.
 
