@@ -1,5 +1,5 @@
 require('bootstrap/dist/css/bootstrap.css');
-require('../css/styles.css');
+require('../css/app.scss');
 
 
 document.write('<h2> This is a demo..! </h2>');

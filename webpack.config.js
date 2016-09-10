@@ -18,7 +18,12 @@ module.exports = {
     contentBase: 'public'
   },
   module: {
-    loaders: [      
+    loaders: [    
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader','css-loader!sass-loader'),
+        exclude: /node_modules/
+      },  
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract('style-loader','css-loader')        

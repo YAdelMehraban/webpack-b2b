@@ -1,0 +1,15 @@
+$body-bg: steelblue;
+
+body {
+  background-color: $body-bg; 
+
+  h2 {
+    font-size: 2em;
+    color: white;
+  }
+
+  label {
+    color: white;
+  }
+}
+
