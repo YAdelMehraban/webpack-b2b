@@ -17,8 +17,17 @@ module.exports = {
   devServer: {
     contentBase: 'public'
   },
+  devtool: 'source-map',
   module: {
     loaders: [    
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+          presets: ['es2015']
+        }
+      },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style-loader','css-loader!sass-loader'),
